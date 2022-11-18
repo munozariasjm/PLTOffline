@@ -14,6 +14,14 @@ Description-Content-Type: text/markdown
 
 # Plt Anomaly Detection Tool
 ### PLT-BRIL, CMS, CERN
+
+
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+
+[![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
+
+[![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://munozariasjm.github.io/plt-anomaly-detector/)
+
 ---
 ### Description
 
@@ -21,14 +29,16 @@ This repo is a efficient implementation of an anomaly detection algorithm suited
 
 For now, the implementation is a Proof-of-Concept, and looks forward to be generalized to other usecases and dockerized.
 
+Please visit the [documentation](https://munozariasjm.github.io/plt-anomaly-detector/) for more information.
+
 ---
 
 ### Quick start
 
-We recommend to use all the commands within a lxplus instance. To beguin, please be in the directory of this repository.
+We recommend to use all the commands within a lxplus instance. To begin, please be in the directory of this repository.
 
 ```bash
-cd AnomalyDetection
+cd plt-anomaly-detector
 ```
 
 From here, we should create a new pipenv environment to install the required packages. This can be easily done via the script we prepared:
@@ -45,7 +55,7 @@ mounter = MountData(user="YOUR_CMSUSR", password="YOUR_password")
 mounter.create_mount(mount_source="brildev1:/brildata/22/", mount_target=MOUNT_TARGET)
 ```
 This will mount all the files containing fills in 2022 in the directory `./Files/22`. And the data will be unmounted when the lxplus instance is closed.
-Now, the data is ready to be used. 
+Now, the data is ready to be used.
 
 There are two main ways of running the anomaly detection algortihm. One of them is to run a single fill file:
 
@@ -54,15 +64,15 @@ from src.model.searcher import AnomalySearcher
 searcher = AnomalySearcher(MOUNT_TARGET)
 
 # Fill to analyze:
-FILL_NUMBER = 1
-result = anm_searcher(FILL_N,
+FILL_N = 1
+result = searcher(FILL_N,
                       return_preprocessed=True,
                       generate_plots=True,
                       save_path = "./Results/22",
                       )
 
 ```
-This function will return a dictionary with the results of the analysis. The plots will be saved in the directory `./Results/22`. The plots are saved in the following format: `FILL_N.png`. The preprocessed data will be saved in the following format: `./Results/22/single_fill_reports/FILL_NUMBER.pkl`.
+This function will return a dictionary with the results of the analysis. The plots will be saved in the directory `./Results/22`. The plots are saved in the following format: `FILL_N.png`. The preprocessed data will be saved in the following format: `./Results/22/single_fill_reports/FILL_N.pkl`.
 
 The other way of running the algorithm is to run it over all the fills in a given directory:
 
@@ -102,7 +112,7 @@ All the dependencies are managed via pipenv for reproducibility and ease of use.
 
 Please add changes to a new branch, and considering test passing, the PR to the master branch.
 
---- 
+---
 
 **Contact**
 

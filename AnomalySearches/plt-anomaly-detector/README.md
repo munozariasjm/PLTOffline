@@ -21,10 +21,10 @@ Please visit the [documentation](https://munozariasjm.github.io/plt-anomaly-dete
 
 ### Quick start
 
-We recommend to use all the commands within a lxplus instance. To beguin, please be in the directory of this repository.
+We recommend to use all the commands within a lxplus instance. To begin, please be in the directory of this repository.
 
 ```bash
-cd AnomalyDetection
+cd plt-anomaly-detector
 ```
 
 From here, we should create a new pipenv environment to install the required packages. This can be easily done via the script we prepared:
@@ -41,7 +41,7 @@ mounter = MountData(user="YOUR_CMSUSR", password="YOUR_password")
 mounter.create_mount(mount_source="brildev1:/brildata/22/", mount_target=MOUNT_TARGET)
 ```
 This will mount all the files containing fills in 2022 in the directory `./Files/22`. And the data will be unmounted when the lxplus instance is closed.
-Now, the data is ready to be used. 
+Now, the data is ready to be used.
 
 There are two main ways of running the anomaly detection algortihm. One of them is to run a single fill file:
 
@@ -98,7 +98,7 @@ All the dependencies are managed via pipenv for reproducibility and ease of use.
 
 Please add changes to a new branch, and considering test passing, the PR to the master branch.
 
---- 
+---
 
 **Contact**
 
